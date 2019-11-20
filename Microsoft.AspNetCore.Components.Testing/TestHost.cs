@@ -55,6 +55,13 @@ namespace Microsoft.AspNetCore.Components.Testing
             return result;
         }
 
+        public RenderedComponent<TComponent> AddComponent<TComponent>(ParameterView parameterView) where TComponent : IComponent
+        {
+            var result = new RenderedComponent<TComponent>(Renderer);
+            result.SetParametersAndRender(parameterView);
+            return result;
+        }
+        
         private TestRenderer Renderer => _renderer.Value;
     }
 }
